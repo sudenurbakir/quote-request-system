@@ -137,12 +137,90 @@ Satış ekibi talep detaylarını inceleyerek sonraki teklif sürecini yürütü
 
 Ürün kurumsal satışa açık değilse:
 
-```text
 Ürün Detayı
     ↓
 Kurumsal Satış Kapalı
     ↓
 Kurumsal Teklif Butonu Gösterilmez
+
+### AF-02 — Geçersiz Adet
+
+Adet Girilir
+
+↓
+
+Adet Geçersiz
+
+↓
+
+Hata Mesajı
+
+↓
+
+Adet Yeniden Girilir
+
+---
+
+### AF-03 — Boş Teklif Sepeti
+
+Teklif Talebi Oluştur
+
+↓
+
+Sepet Boş
+
+↓
+
+İşlem Engellenir
+
+↓
+
+Kullanıcı Sepete Yönlendirilir
+
+---
+
+### AF-04 — Eksik Firma / Yetkili Bilgisi
+
+Bilgiler Girilir
+
+↓
+
+Eksik / Geçersiz Bilgi
+
+↓
+
+Hata Mesajı
+
+↓
+
+Form Düzenlenir
+
+↓
+
+Tekrar Gönderilir
+
+---
+
+## 5. Akışın Başlangıç ve Bitiş Noktaları
+
+### Başlangıç
+
+Müşterinin ürün detay sayfasını görüntülemesi.
+
+### Bitiş
+
+Teklif talebinin oluşturulması, benzersiz teklif numarasının üretilmesi ve talebin satış ekibine iletilmesi.
+
+### Kapsam Dışı Sonraki Süreç
+
+Satış ekibinin:
+
+- Fiyatlandırma yapması
+- İskonto belirlemesi
+- Müşteriye nihai teklif sunması
+- Sipariş oluşturması
+
+bu akışın kapsamı dışındadır.
 
 # Kullanıcı Akışı
 
