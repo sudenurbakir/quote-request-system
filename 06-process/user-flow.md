@@ -8,7 +8,143 @@ Akış, müşterinin teklif talebi oluşturma sürecini ve sistemin bu süreçte
 
 ---
 
-## 2. Ana Kullanıcı Akışı
+## 2. Akış Adımları
+
+### Adım 1 — Ürün Görüntüleme
+
+Müşteri bir ürünün detay sayfasını görüntüler.
+
+Sistem ürünün `Kurumsal Satışa Açık` durumunu kontrol eder.
+
+---
+
+### Adım 2 — Kurumsal Satış Kontrolü
+
+**Kurumsal satış aktifse:**
+
+`Kurumsal Teklif Talep Et` butonu gösterilir.
+
+**Kurumsal satış aktif değilse:**
+
+Kurumsal teklif butonu gösterilmez ve kullanıcı mevcut satın alma akışından devam eder.
+
+---
+
+### Adım 3 — Adet Belirleme
+
+Müşteri teklif etmek istediği ürünün adetini belirler.
+
+Sistem adet bilgisinin geçerli olup olmadığını kontrol eder.
+
+Geçersiz adet girilirse kullanıcıya hata mesajı gösterilir.
+
+---
+
+### Adım 4 — Teklif Sepetine Ekleme
+
+Geçerli adet bilgisiyle ürün kurumsal teklif sepetine eklenir.
+
+Müşteri isterse başka kurumsal ürünleri de sepete ekleyebilir.
+
+---
+
+### Adım 5 — Teklif Sepetini Düzenleme
+
+Müşteri:
+
+- Ürün adetini değiştirebilir.
+- Ürünleri sepetten çıkarabilir.
+- Yeni ürünler ekleyebilir.
+
+Sepette en az bir ürün bulunması durumunda teklif talebi oluşturma işlemine devam edilebilir.
+
+---
+
+### Adım 6 — Firma ve Yetkili Bilgileri
+
+Müşteri teklif talebi oluşturmak için gerekli bilgileri girer.
+
+Örnek:
+
+- Firma adı
+- Vergi numarası
+- Firma adresi
+- Yetkili adı soyadı
+- E-posta
+- Telefon
+
+---
+
+### Adım 7 — Bilgi Doğrulama
+
+Sistem girilen bilgileri kontrol eder.
+
+Bilgiler eksik veya geçersizse kullanıcı bilgilendirilir ve formu düzenlemesi istenir.
+
+Bilgiler geçerliyse teklif talebi oluşturulur.
+
+---
+
+### Adım 8 — Teklif Talebinin Oluşturulması
+
+Sistem aşağıdaki bilgileri kaydeder:
+
+- Müşteri bilgileri
+- Firma bilgileri
+- Yetkili bilgileri
+- Ürünler
+- Ürün adetleri
+- Talep tarihi
+- Talep durumu
+
+Talebin başlangıç durumu:
+
+`Yeni`
+
+olarak belirlenir.
+
+---
+
+### Adım 9 — Teklif Numarasının Oluşturulması
+
+Sistem oluşturulan talebe benzersiz bir teklif numarası atar.
+
+Örnek:
+
+`TK-2026-001245`
+
+---
+
+### Adım 10 — Başarı Ekranı
+
+Müşteriye talebin başarıyla oluşturulduğu gösterilir.
+
+Teklif numarası ekranda görüntülenir.
+
+---
+
+### Adım 11 — Satış Ekibine İletim
+
+Oluşturulan teklif talebi satış ekibinin yönetim panelinde görüntülenebilir hale gelir.
+
+Satış ekibi talep detaylarını inceleyerek sonraki teklif sürecini yürütür.
+
+---
+
+## 4. Alternatif / Hata Akışları
+
+### AF-01 — Kurumsal Satış Kapalı
+
+Ürün kurumsal satışa açık değilse:
+
+```text
+Ürün Detayı
+    ↓
+Kurumsal Satış Kapalı
+    ↓
+Kurumsal Teklif Butonu Gösterilmez
+
+# Kullanıcı Akışı
 
 ```mermaid
 flowchart TD
